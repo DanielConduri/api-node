@@ -34,10 +34,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: ENV BACK
-        working-directory: ./server
+        working-directory: ./
         run: |
-          touch ./server/.env
-          echo "${{secrets.PROD_ENV_API }}" > ./server/.env
+          touch .env
+          echo "${{secrets.PROD_ENV_API }}" > .env
           #echo DB_USER=${{ secrets.DB_USER }} >> .env
           #echo DB_SERVER=${{ secrets.DB_SERVER }} >> .env
           #echo DB_PASSWORD=${{ secrets.DB_PASSWORD }} >> .env
