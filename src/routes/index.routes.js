@@ -12,6 +12,9 @@ router.get('/info', (req, res, next) => {
                 api: "api-node",
                 port: 8000,
                 url: "/"
+            },
+            {
+                command1: "docker-compose up --build -d",
             }
         ]
     });
