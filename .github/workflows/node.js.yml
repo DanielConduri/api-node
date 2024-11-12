@@ -36,14 +36,14 @@ jobs:
       - name: ENV BACK
         working-directory: ./
         run: |
-          touch ./server/.env
-          echo "${{secrets.PROD_ENV_PRODUCTOS }}" > ./server/.env
-          echo DB_USER=${{ secrets.DB_USER }} >> ./server/.env
-          echo DB_SERVER=${{ secrets.DB_SERVER }} >> ./server/.env
-          echo DB_PASSWORD=${{ secrets.DB_PASSWORD }} >> ./server/.env
-          echo DB_DIALECT=${{ secrets.DB_DIALECT }} >> ./server/.env
-          echo DB_PORT=${{ secrets.DB_PORT }} >> ./server/.env
-          echo DB_NAME=${{ secrets.DB_NAME }} >> ./server/.env
+          touch .env
+          echo "${{secrets.PROD_ENV_PRODUCTOS }}" > .env
+          echo DB_USER=${{ secrets.DB_USER }} >> .env
+          echo DB_SERVER=${{ secrets.DB_SERVER }} >> .env
+          echo DB_PASSWORD=${{ secrets.DB_PASSWORD }} >> .env
+          echo DB_DIALECT=${{ secrets.DB_DIALECT }} >> .env
+          echo DB_PORT=${{ secrets.DB_PORT }} >> .env
+          echo DB_NAME=${{ secrets.DB_NAME }} >> .env
   build:
     name: DEPLOY
     needs: env

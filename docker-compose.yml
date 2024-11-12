@@ -6,7 +6,7 @@ services:
     expose:
       - "8000"
     restart: always
-    env_file: .env
+    env_file: ./.env
     networks:
       - backend
 
