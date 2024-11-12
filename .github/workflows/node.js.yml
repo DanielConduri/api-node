@@ -34,7 +34,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: ENV BACK
-        working-directory: ./
+        #working-directory: 
         run: |
           touch .env
           echo "${{secrets.PROD_ENV_API }}" > .env
