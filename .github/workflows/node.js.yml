@@ -10,22 +10,44 @@ on:
     branches: [ "dev" ]
 
 jobs:
-  build:
-
+  start:
+    - name: PULL
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [18.x, 20.x, 22.x]
+    #strategy:
+      #matrix:
+        #node-version: [18.x, 20.x, 22.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
     - uses: actions/checkout@v4
-    - name: Use Node.js ${{ matrix.node-version }}
+    #- name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: npm ci
-    - run: npm run build --if-present
-    - run: npm test
+      #with:
+        #node-version: ${{ matrix.node-version }}
+        #cache: 'npm'
+    #- run: npm ci
+    #- run: npm run build --if-present
+    #- run: npm test
+  env:
+    name: SET ENV
+    needs: start
+    runs-on: ubuntu-latest
+    steps:
+      - name: ENV BACK
+        working-directory: ./
+        run: |
+          touch ./server/.env
+          echo "${{secrets.PROD_ENV_PRODUCTOS }}" > ./server/.env
+          echo DB_USER=${{ secrets.DB_USER }} >> ./server/.env
+          echo DB_SERVER=${{ secrets.DB_SERVER }} >> ./server/.env
+          echo DB_PASSWORD=${{ secrets.DB_PASSWORD }} >> ./server/.env
+          echo DB_DIALECT=${{ secrets.DB_DIALECT }} >> ./server/.env
+          echo DB_PORT=${{ secrets.DB_PORT }} >> ./server/.env
+          echo DB_NAME=${{ secrets.DB_NAME }} >> ./server/.env
+  build:
+    name: DEPLOY
+    needs: env
+    runs-on: ubuntu-latest
+    steps:
+      - name: build
+        run: docker-compose up --build -d
