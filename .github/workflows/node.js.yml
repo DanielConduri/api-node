@@ -49,8 +49,6 @@ jobs:
     needs: env
     runs-on: ubuntu-latest
     steps:
-    - name: Install Docker Compose
-        run:
-          sudo apt-get install docker-compose
-    - name: build
+      - name: build
+        run: sudo apt-get install docker-compose
         run: docker-compose up --build -d
