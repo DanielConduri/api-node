@@ -11,7 +11,7 @@ on:
 
 jobs:
   start:
-    - name: PULL
+    name: PULL
     runs-on: ubuntu-latest
     #strategy:
       #matrix:
