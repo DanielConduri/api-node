@@ -50,5 +50,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: build
-        run: sudo apt-get install docker-compose
-        run: docker-compose up --build -d
+        run: |
+          sudo apt-get install docker-compose
+          docker-compose up --build -d
