@@ -36,8 +36,8 @@ jobs:
       - name: ENV BACK
         working-directory: ./server
         run: |
-          touch .env
-          echo "${{secrets.PROD_ENV_API }}" > .env
+          touch ./server/.env
+          echo "${{secrets.PROD_ENV_API }}" > ./server/.env
           #echo DB_USER=${{ secrets.DB_USER }} >> .env
           #echo DB_SERVER=${{ secrets.DB_SERVER }} >> .env
           #echo DB_PASSWORD=${{ secrets.DB_PASSWORD }} >> .env
