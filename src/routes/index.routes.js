@@ -7,7 +7,13 @@ router.get('/info', (req, res, next) => {
     res.json({
         status: 200,
         message: 'OK',
-        version: '1.15',
+        body: [
+            {
+                api: "api-node",
+                port: 8000,
+                url: "/"
+            }
+        ]
     });
 });
 
