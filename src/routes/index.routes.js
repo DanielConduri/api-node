@@ -6,7 +6,7 @@ const router = Router();
 router.get('/info', (req, res, next) => {
     res.json({
         status: 200,
-        message: 'OK',
+        message: 'OK....',
         body: [
             {
                 api: "api-node",
