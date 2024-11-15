@@ -2,6 +2,7 @@ version: "3.9"
 
 services:
   api:
+    image: node18
     build: ./
     expose:
       - "8000"
