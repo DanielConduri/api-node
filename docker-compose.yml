@@ -3,6 +3,7 @@ version: "3.9"
 services:
   api:
     image: node18
+    container_name: container-api-node
     build: ./
     expose:
       - "8000"
@@ -13,6 +14,7 @@ services:
 
   nginx:
     image: nginx:latest
+    container_name: container-nginx
     ports:
       - "80:80"
     volumes:

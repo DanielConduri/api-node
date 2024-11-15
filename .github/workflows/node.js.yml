@@ -52,7 +52,7 @@ jobs:
       - name: build
         run: |
           #sudo apt-get install -y docker-compose
-          docker rm -f api-node_api
-          docker rmi -f api-node_api
+          docker rm -f container-api-node
+          docker rmi -f node18
           docker-compose up --build -d
           #docker-compose -f ./docker/docker-compose.yml up --build -d
