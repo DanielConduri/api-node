@@ -19,6 +19,10 @@ router.get('/info', (req, res, next) => {
             {
                 app: "With docker",
                 container: "OK"
+            },
+            {
+                container_1: "api-node",
+                container_2: "nginx"
             }
         ]
     });
