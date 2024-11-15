@@ -17,7 +17,8 @@ router.get('/info', (req, res, next) => {
                 command1: "docker-compose up --build -d",
             },
             {
-                app: "With docker"
+                app: "With docker",
+                container: "OK"
             }
         ]
     });
