@@ -2,3 +2,10 @@
 !src/
 !*.js
 !*.json
+
+/node_modules
+/dist
+/e2e
+/docs
+.gitignore
+*.zip
