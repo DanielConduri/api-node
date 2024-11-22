@@ -2,7 +2,7 @@
 
 services:
 
-  ngular-app:
+  angular-app:
     image: angular
     container_name: container-angular
     build: 
