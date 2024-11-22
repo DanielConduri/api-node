@@ -11,7 +11,8 @@ RUN npm install
 # Copiar todos los archivos
 COPY . .
 # Construir la aplicacion lista para produccion, puede no incluir el # flag --prod
-RUN npm run build --prod
+#RUN npm run build --prod
+RUN npm run build --omit=dev
 
 # Stage 2
 FROM nginx:latest

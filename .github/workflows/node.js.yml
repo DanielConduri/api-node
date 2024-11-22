@@ -52,7 +52,7 @@ jobs:
       - name: build
         run: |
           #sudo apt-get install -y docker-compose
-          docker rm -f container-api-inventario container-nginx
-          docker rmi -f node18 nginx
+          docker rm -f container-angular container-api-node container-nginx
+          docker rmi -f angular node18 nginx
           docker-compose up --build -d
           #docker-compose -f ./docker/docker-compose.yml up --build -d
