@@ -9,7 +9,7 @@ router.get('/info', (req, res, next) => {
         message: 'OK',
         body: [
             {
-                api: "api-node",
+                api: "api-node update",
                 port: 8000,
                 url: "/"
             },
