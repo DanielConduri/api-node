@@ -2,21 +2,21 @@
 
 services:
 
-  angular-app:
-    image: angular
-    container_name: container-angular
-    build: 
-      context: ./client
-      dockerfile: Dockerfile
-    ports:
-      - "4200:80" # Mapea el puerto 80 del contenedor al puerto 8080 del host
-    #volumes:
-      #- ./nginx.conf:/etc/nginx/conf.d/default.conf # Opcional para desarrollo
-    # expose:
-    #   - "4200"
-    restart: always
-    networks:
-      - backend
+  # angular-app:
+  #   image: angular
+  #   container_name: container-angular
+  #   build: 
+  #     context: ./client
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "4200:80" # Mapea el puerto 80 del contenedor al puerto 8080 del host
+  #   #volumes:
+  #     #- ./nginx.conf:/etc/nginx/conf.d/default.conf # Opcional para desarrollo
+  #   # expose:
+  #   #   - "4200"
+  #   restart: always
+  #   networks:
+  #     - backend
 
   api:
     image: node18
