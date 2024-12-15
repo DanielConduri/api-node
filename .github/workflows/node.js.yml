@@ -44,7 +44,7 @@ jobs:
 
       - name: Send lead time to Prometheus (Pushgateway)
         run: |
-          curl -X POST http://18.207.191.94:9091/metrics/job/github-actions \
+          curl -X POST http://18.207.191.94:9091/metrics/ \
           --data "lead_time_seconds $LEAD_TIME"
   env:
     name: SET ENV
