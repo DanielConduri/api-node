@@ -23,6 +23,9 @@ router.get('/info', (req, res, next) => {
             {
                 container_1: "api-node",
                 container_2: "nginx"
+            },
+            {
+                update: "credentials"
             }
         ]
     });
