@@ -28,15 +28,15 @@ jobs:
     #- run: npm run build --if-present
     #- run: npm test
 
-      - name: Get last commit timestamp
+      #- name: Get last commit timestamp
         run: |
           LAST_COMMIT_TIMESTAMP=$(git log -1 --format=%ct)
           echo "LAST_COMMIT_TIMESTAMP=$LAST_COMMIT_TIMESTAMP" >> $GITHUB_ENV
 
-      - name: Get deployment timestamp
+      #- name: Get deployment timestamp
         run: echo "DEPLOYMENT_TIMESTAMP=$(date +%s)" >> $GITHUB_ENV
 
-      - name: Calculate lead time
+      #- name: Calculate lead time
         run: |
           LEAD_TIME=$(($DEPLOYMENT_TIMESTAMP - $LAST_COMMIT_TIMESTAMP))
           echo "Lead Time: $LEAD_TIME seconds"
