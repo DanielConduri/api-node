@@ -21,7 +21,7 @@ services:
   api:
     image: node18
     container_name: container-api-node
-    build: ./src
+    build: ./
     expose:
       - "8000"
     restart: always
