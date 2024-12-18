@@ -48,6 +48,8 @@ jobs:
       - name: build-angular
         run: |
           cd client
+          npm install -g @angular/cli@16.2.16 # Install Angular CLI in the workflow environment
+          npm install
           npm run build --omit=dev
           sudo cp -r ./dist/client/* /var/www/
 
