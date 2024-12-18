@@ -26,7 +26,9 @@ jobs:
             cd client
             sudo cp -r ./dist /var/www/
             ls -R dist
-            sudo docker stop container-api-node
+            rsync -avz  ./client/dist/client/  ubuntu@ec2-18-207-191-94:/var/www/
+            #ssh  "sudo systemctl restart nginx"
+            #sudo docker stop container-api-node
             sudo systemctl restart nginx
 
       #- run: npm test
