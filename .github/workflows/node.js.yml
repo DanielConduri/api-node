@@ -13,20 +13,26 @@ jobs:
   start:
     name: PULL
     runs-on: self-hosted
-    #strategy:
-      #matrix:
-        #node-version: [18.x, 20.x, 22.x]
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x, 22.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
     steps:
       - uses: actions/checkout@v4
-    #- name: Use Node.js ${{ matrix.node-version }}
-      #uses: actions/setup-node@v4
-      #with:
-        #node-version: ${{ matrix.node-version }}
-        #cache: 'npm'
-    #- run: npm ci
+      - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+        - run: npm ci
     #- run: npm run build --if-present
     #- run: npm test
+
+      - name: Build Angular app
+        run: |
+        npm run build --prod
+        sudo cp -r ./client/dist/client/* /var/www/html/inventario
+
 
       - name: Get last commit timestamp
         run: |
@@ -46,6 +52,7 @@ jobs:
         run: |
           curl -X POST http://18.207.191.94:9091/metrics/ \
           --data "lead_time_seconds $LEAD_TIME"
+          
   env:
     name: SET ENV
     needs: start
