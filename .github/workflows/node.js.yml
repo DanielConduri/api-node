@@ -31,6 +31,11 @@ jobs:
 
       - run: |
             mkdir -p ~/.ssh   # Crea la carpeta ~/.ssh si no existe
+
+            echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+
+            chmod 600 ~/.ssh/id_rsa
+
             ssh-keyscan -H ec2-18-207-191-94.compute-1.amazonaws.com >> ~/.ssh/known_hosts
             cat ~/.ssh/known_hosts
 
@@ -38,10 +43,12 @@ jobs:
             cd client
             ssh-keyscan -H ec2-18-207-191-94.compute-1.amazonaws.com >> ~/.ssh/known_hosts
 
+            sudo rsync -avz -e "ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no" ./dist/ ubuntu@ec2-18-207-191-94.compute-1.amazonaws.com:/var/www/
+
             #sudo scp -o StrictHostKeyChecking=no -r ./dist /var/www/
-            sudo scp -o StrictHostKeyChecking=no -r ./dist/* ubuntu@ec2-18-207-191-94.compute-1.amazonaws.com:/var/www/
+            #sudo scp -o StrictHostKeyChecking=no -r ./dist/* ubuntu@ec2-18-207-191-94.compute-1.amazonaws.com:/var/www/
             #sudo rsync -avz -e "ssh -o StrictHostKeyChecking=no" ./dist/ ubuntu@ec2-18-207-191-94.compute-1.amazonaws.com:/var/www/
-            ssh ubuntu@ec2-18-207-191-94.compute-1.amazonaws.com
+            #ssh ubuntu@ec2-18-207-191-94.compute-1.amazonaws.com
 
             ls -R dist
 
