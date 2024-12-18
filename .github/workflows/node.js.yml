@@ -31,7 +31,14 @@ jobs:
       - name: Build Angular app
         run: |
         npm run build --prod
-        sudo cp -r ./client/dist/client/* /var/www/html/inventario
+
+      - name: Deploy to Ubuntu Server via SSH
+        script: |
+          sudo systemctl stop nginx
+          sudo cp -r ./client/dist/client/* /var/www/html/inventario
+          sudo systemctl start nginx
+          sudo systemctl restart nginx
+
 
 
       - name: Get last commit timestamp
