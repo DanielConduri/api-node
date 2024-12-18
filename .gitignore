@@ -6,3 +6,4 @@ db.dev.sql
 json.js
 __test__/coverage
 !dist/.env
+pipeline.txt

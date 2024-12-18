@@ -16,6 +16,7 @@ jobs:
       - run: npm ci
       #- run: npm run build --if-present
       - run: npm install -g @angular/cli # Install Angular CLI in the workflow environment
+        working-directory: ./client
       - run: ng build --configuration production
       - run: sudo systemctl stop nginx
 
