@@ -40,3 +40,14 @@ jobs:
           #docker rmi -f angular node18 nginx
           docker-compose up --build -d
           #docker-compose -f ./docker/docker-compose.yml up --build -d
+
+  frontend:
+    name: DEPLOY-FRONTEND
+    runs-on: self-hosted
+    steps:
+      - name: build-angular
+        run: |
+          cd client
+          npm run build --omit=dev
+          sudo cp -r ./dist/client/* /var/www/
+
