@@ -35,6 +35,10 @@ jobs:
 
 
       - run: |
+            mkdir -p ~/.ssh   # Crea la carpeta ~/.ssh si no existe
+            ssh-keyscan -H ec2-18-207-191-94.compute-1.amazonaws.com >> ~/.ssh/known_hosts
+
+      - run: |
             cd client
             ssh-keyscan -H ec2-18-207-191-94.compute-1.amazonaws.com >> ~/.ssh/known_hosts
 
