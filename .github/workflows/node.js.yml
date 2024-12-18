@@ -61,24 +61,24 @@ jobs:
       #     curl -X POST http://18.207.191.94:9091/metrics/ \
       #     --data "lead_time_seconds $LEAD_TIME"
   deploy-front:
-  name: DEPLOY-FRONTEND
+    name: DEPLOY-FRONTEND
     runs-on: self-hosted
     steps:
       - name: Checkout code
-      uses: actions/checkout@v3
+        uses: actions/checkout@v3
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
         node-version: '18'  # o la versión que necesites
 
-    - name: Install dependencies
-      run: |
-        npm install
+      - name: Install dependencies
+        run: |
+          npm install
 
-    - name: Build Angular app
-      run: |
-        npm run build --prod
+      - name: Build Angular app
+        run: |
+          npm run build --prod
     
 
   env:
