@@ -19,7 +19,7 @@ jobs:
         working-directory: ./client
       - run: |
             cd client
-            npx npm-check-updates -u
+            #npx npm-check-updates -u
             npm install
             ng build --configuration production
       - run: |
