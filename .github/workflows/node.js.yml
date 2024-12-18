@@ -19,11 +19,12 @@ jobs:
         working-directory: ./client
       - run: |
             cd client
+            npx npm-check-updates -u
             npm install
             ng build --configuration production
       - run: |
             cd client
-            sudo cp -f ./client/dist/client /var/www/
+            sudo cp -r ./dist/client /var/www/
             sudo systemctl restart nginx
 
       #- run: npm test
