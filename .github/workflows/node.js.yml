@@ -17,10 +17,8 @@ jobs:
       #- run: npm run build --if-present
       - run: npm run build --prod
       - name: Deploy to Ubuntu Server via SSH
-        with:
-          script: |
-           sudo systemctl stop nginx
-           
+      - run: sudo systemctl stop nginx
+
       #- run: npm test
 
 
