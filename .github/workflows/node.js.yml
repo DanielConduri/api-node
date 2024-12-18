@@ -28,9 +28,9 @@ jobs:
     #- run: npm run build --if-present
     #- run: npm test
 
-      - name: Build Angular app
-        run: |
-        npm run build --prod
+      # - name: Build Angular app
+      #   run: |
+      #   npm run build --prod
 
       # - name: Deploy to Ubuntu Server via SSH
       #   script: |
