@@ -24,7 +24,8 @@ jobs:
             ng build --configuration production
       - run: |
             cd client
-            sudo cp -r /dist/client /var/www/
+            sudo cp -r ./dist/client /var/www/
+            ls -R dist
             sudo systemctl restart nginx
 
       #- run: npm test
