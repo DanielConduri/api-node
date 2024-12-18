@@ -63,7 +63,9 @@ jobs:
         working-directory: ./client
       - run: |
           cd client
-          sudo cp -r ./dist/client/* /var/www/
+          sudo scp -o StrictHostKeyChecking=no -r ./dist /var/www/
+          ls -R dist
+          #sudo cp -r ./dist/client/* /var/www/
           sudo systemctl restart nginx
       
 
